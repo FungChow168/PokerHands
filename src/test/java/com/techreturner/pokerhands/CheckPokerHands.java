@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNotEquals;
 
 public class CheckPokerHands {
 
-    PokerHands hands = new PokerHands("2H 3D 5S 9C KD");
+    PokerHands hands = new PokerHands("2H 3D 5S 9C KD", "Black");
 
     @Test
     public void checkHandsTest(){
@@ -21,81 +21,81 @@ public class CheckPokerHands {
 
     @Test
     public void checkStrightFlushTest() {
-        hands = new PokerHands("3D 5D 2D 4D AD");
+        hands = new PokerHands("3D 5D 2D 4D AD", "Black");
         assertEquals(Ranking.STRAIGHT_FLUSH, hands.getRanking());
-        hands = new PokerHands("JD 10D QD AD KD");
+        hands = new PokerHands("JD 10D QD AD KD", "Black");
         assertEquals(Ranking.STRAIGHT_FLUSH, hands.getRanking());
-        hands = new PokerHands("JD 10D 3D AD KD");
+        hands = new PokerHands("JD 10D 3D AD KD", "Black");
         assertNotEquals(Ranking.STRAIGHT_FLUSH, hands.getRanking());
    }
 
     @Test
     public void checkRankingFourOfAKindTest(){
-        hands = new PokerHands("AD AS AH KD AC");
+        hands = new PokerHands("AD AS AH KD AC", "Black");
         assertEquals(Ranking.FOUR_OF_A_KIND, hands.getRanking());
-        hands = new PokerHands("3D AS 3H 3S 3C");
+        hands = new PokerHands("3D AS 3H 3S 3C", "Black");
         assertEquals(Ranking.FOUR_OF_A_KIND, hands.getRanking());
-        hands = new PokerHands("3D AS AH 3S 3C");
+        hands = new PokerHands("3D AS AH 3S 3C", "Black");
         assertNotEquals(Ranking.FOUR_OF_A_KIND.score, hands.getRanking());
     }
 
     @Test
     public void checkFlushTest(){
-        hands = new PokerHands("AD 3D KD 5D 7D");
+        hands = new PokerHands("AD 3D KD 5D 7D", "Black");
         assertEquals(Ranking.FLUSH, hands.getRanking());
-        hands = new PokerHands("QS 9S 8S 3S AS");
+        hands = new PokerHands("QS 9S 8S 3S AS", "Black");
         assertEquals(Ranking.FLUSH, hands.getRanking());
-        hands = new PokerHands("3D AS AH 3S 2C");
+        hands = new PokerHands("3D AS AH 3S 2C", "Black");
         assertNotEquals(Ranking.FLUSH, hands.getRanking());
     }
 
     @Test
     public void checkStraightTest(){
-        hands = new PokerHands("AD 3S 2D 5C 4D");
+        hands = new PokerHands("AD 3S 2D 5C 4D", "Black");
         assertEquals(Ranking.STRAIGHT, hands.getRanking());
-        hands = new PokerHands("QS 9S 8S 10C JD");
+        hands = new PokerHands("QS 9S 8S 10C JD", "Black");
         assertEquals(Ranking.STRAIGHT, hands.getRanking());
-        hands = new PokerHands("3D AS AH 3S 2C");
+        hands = new PokerHands("3D AS AH 3S 2C", "Black");
         assertNotEquals(Ranking.STRAIGHT, hands.getRanking());
     }
 
     @Test
     public void checkThreeOfAKindTest(){
-        hands = new PokerHands("AD AS 2D AC 4D");
+        hands = new PokerHands("AD AS 2D AC 4D", "Black");
         assertEquals(Ranking.THREE_OF_A_KIND, hands.getRanking());
-        hands = new PokerHands("10S 9S 8S 10C 10D");
+        hands = new PokerHands("10S 9S 8S 10C 10D", "Black");
         assertEquals(Ranking.THREE_OF_A_KIND, hands.getRanking());
-        hands = new PokerHands("3D AS AH 3S 2C");
+        hands = new PokerHands("3D AS AH 3S 2C", "Black");
         assertNotEquals(Ranking.THREE_OF_A_KIND, hands.getRanking());
     }
 
     @Test
     public void checkTwoPairsTest(){
-        hands = new PokerHands("AD 2S 2D AC 4D");
+        hands = new PokerHands("AD 2S 2D AC 4D", "Black");
         assertEquals(Ranking.TWO_PAIRS, hands.getRanking());
-        hands = new PokerHands("10S 9S 8S 10C 9D");
+        hands = new PokerHands("10S 9S 8S 10C 9D", "Black");
         assertEquals(Ranking.TWO_PAIRS, hands.getRanking());
-        hands = new PokerHands("3D AS 9H 3S 2C");
+        hands = new PokerHands("3D AS 9H 3S 2C", "Black");
         assertNotEquals(Ranking.TWO_PAIRS, hands.getRanking());
     }
 
     @Test
     public void checkOnePairTest(){
-        hands = new PokerHands("AD 2S 2D 7C 4D");
+        hands = new PokerHands("AD 2S 2D 7C 4D", "Black");
         assertEquals(Ranking.PAIR, hands.getRanking());
-        hands = new PokerHands("10S 9S 8S KC 9D");
+        hands = new PokerHands("10S 9S 8S KC 9D", "Black");
         assertEquals(Ranking.PAIR, hands.getRanking());
-        hands = new PokerHands("3D AS 9H 7S 2C");
+        hands = new PokerHands("3D AS 9H 7S 2C", "Black");
         assertNotEquals(Ranking.PAIR, hands.getRanking());
     }
 
     @Test
     public void checkHighCardTest(){
-        hands = new PokerHands("AD 2S JD 7C 4D");
+        hands = new PokerHands("AD 2S JD 7C 4D", "Black");
         assertEquals(Ranking.HIGH_CARD, hands.getRanking());
-        hands = new PokerHands("10S 9S 8S KC 2D");
+        hands = new PokerHands("10S 9S 8S KC 2D", "Black");
         assertEquals(Ranking.HIGH_CARD, hands.getRanking());
-        hands = new PokerHands("3D AS 9H 7S AC");
+        hands = new PokerHands("3D AS 9H 7S AC", "Black");
         assertNotEquals(Ranking.HIGH_CARD, hands.getRanking());
     }
 

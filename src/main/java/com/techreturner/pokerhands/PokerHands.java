@@ -9,6 +9,7 @@ import static java.util.stream.Collectors.*;
 
 public class PokerHands {
 
+    private String playerName;
     private Ranking ranking;
     private boolean isFlush = false;
     private boolean isStraight = false;
@@ -17,7 +18,8 @@ public class PokerHands {
     private ArrayList<CardCount> cardCountByValue = new ArrayList<>();
     private Map<String, Long> cardCountBySuit ;
 
-    public PokerHands (String cards){
+    public PokerHands (String cards, String playerName){
+        this.playerName = playerName;
         String [] cardStack = cards.split(" ");
         for (String card: cardStack) {
             this.cards.add(new Card(card.substring(0, card.length() - 1), card.substring(card.length() - 1, card.length())));
