@@ -33,6 +33,8 @@ public class PokerHands {
 
     public ArrayList<Card> getHands(){return cards;}
 
+    public ArrayList<CardCount> getCardCountByValue(){return cardCountByValue;};
+
     public Ranking getRanking(){
         return ranking;
     }
