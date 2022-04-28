@@ -9,7 +9,7 @@ import static java.util.stream.Collectors.*;
 
 public class PokerHands {
 
-    private String playerName;
+    private String playerName, winningMessage;
     private Ranking ranking;
     private boolean isFlush = false;
     private boolean isStraight = false;
@@ -26,6 +26,10 @@ public class PokerHands {
         }
         rankTheHands();
     }
+
+    public String getPlayerName(){return playerName;}
+
+    public String getWinningMessage(){return winningMessage;}
 
     public ArrayList<Card> getHands(){return cards;}
 
@@ -56,26 +60,39 @@ public class PokerHands {
 
 
         switch (cardCountByValue.size()){
-            case 2 -> {if ((int) cardCountByValue.get(cardCountByValue.size()-1).count() == 4)
-                            ranking = Ranking.FOUR_OF_A_KIND;
-                       else
-                            ranking = Ranking.FULL_HOUSE;
-                        break;}
-            case 3 -> { if ((int) cardCountByValue.get(cardCountByValue.size()-1).count() == 3)
+            case 2 -> {if ((int) cardCountByValue.get(cardCountByValue.size()-1).count() == 4) {
+                         ranking = Ranking.FOUR_OF_A_KIND;
+                         winningMessage = String.format("%s wins. - with four of a kind.", playerName);
+                      }else{
+                          ranking = Ranking.FULL_HOUSE;
+                          winningMessage = String.format("%s wins. - with full house.", playerName);
+                      }
+                      break;}
+            case 3 -> { if ((int) cardCountByValue.get(cardCountByValue.size()-1).count() == 3){
                             ranking = Ranking.THREE_OF_A_KIND;
-                        else
+                           winningMessage = String.format("%s wins. - with three of a kind.", playerName);
+                        }else {
                             ranking = Ranking.TWO_PAIRS;
+                            winningMessage = String.format("%s wins. - with two pairs.", playerName);
+                        }
                         break;}
-            case 4 -> ranking = Ranking.PAIR;
+            case 4 -> {ranking = Ranking.PAIR;
+                        winningMessage = String.format("%s wins. - with pair.", playerName);
+                        break;}
             case 5 -> {isStraight();
-                        if(isStraight && isFlush)
+                        if(isStraight && isFlush) {
                             ranking = Ranking.STRAIGHT_FLUSH;
-                        else if (isFlush)
+                            winningMessage = String.format("%s wins. - with straight flush.", playerName);
+                        }else if (isFlush) {
                             ranking = Ranking.FLUSH;
-                        else if (isStraight)
+                            winningMessage = String.format("%s wins. - with flush.", playerName);
+                        }else if (isStraight) {
                             ranking = Ranking.STRAIGHT;
-                        else
+                            winningMessage = String.format("%s wins. - with straight.", playerName);
+                        }else {
                             ranking = Ranking.HIGH_CARD;
+                            winningMessage = String.format("%s wins. - with high card", playerName);
+                        }
                         break;}
             default -> throw new IllegalArgumentException();
         }
