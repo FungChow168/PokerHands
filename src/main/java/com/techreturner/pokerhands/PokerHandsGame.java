@@ -31,12 +31,4 @@ public class PokerHandsGame {
         return "Tile";
     }
 
-    public static void main(String[] args) {
-        PokerHandsGame  a = new PokerHandsGame("2C 9C 8S JC QH", "Black",
-                "2D 3D 10H JH QD", "White");
-//        PokerHandsGame  a = new PokerHandsGame("3S 4S 4H 3C 6D", "Black",
-//                "4C 8S 4D 3D 3H", "White");
-        System.out.println(a.getWinner());
-    }
-
 }

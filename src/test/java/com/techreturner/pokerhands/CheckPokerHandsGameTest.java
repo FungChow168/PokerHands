@@ -2,7 +2,7 @@ package com.techreturner.pokerhands;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 
 public class CheckPokerHandsGameTest {
 

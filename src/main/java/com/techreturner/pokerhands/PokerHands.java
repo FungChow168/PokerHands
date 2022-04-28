@@ -1,6 +1,5 @@
 package com.techreturner.pokerhands;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -137,17 +136,5 @@ public class PokerHands {
                 };
 
     }
-
-    public static void main(String[] args) {
-//        PokerHands a = new PokerHands("10D JD QD KD AD");
-//        PokerHands a = new PokerHands("8H Qh Jh 10h 9h");
-//        PokerHands a = new PokerHands("3D AS 9H 3S 2C");
-//        a.rankTheHands();
-
-
-
-
-    }
-
 
 }
